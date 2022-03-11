@@ -34,3 +34,7 @@ Naturally, there are a few problems to using Floodgates, as with all programs an
 ## Contributions
 
 Think you can help us improve Floodgates? Let us know! 
+
+## Disclaimer
+
+This script is provided for educational purposes, and/or for the purposes of legitimate stress-testing of a mail server or domain. simbyte is **not** responsible for any malicious usage of this code. 
