@@ -2,6 +2,7 @@ from os import times
 import smtplib
 from time import sleep
 from getpass import getpass
+import sys
 
 class colors():
     red = "\u001b[31m"
@@ -40,7 +41,7 @@ print("║ /_/   /_/\____/\____/\____/\__  /\____/\__/\___/____/   ║")
 print("║                          /____/      by simbyte         ║")
 print("╚═════════════════════════════════════════════════════════╝" + colors.res)
 
-# Floodgates vA_0302-1
+# Floodgates vA_0402-1
 
 def flooder():
     # This section verifies your provider to allow a proper SMTP connection.
@@ -132,7 +133,7 @@ def flooder():
     print(colors.bgre + "Success! All messages were successfully sent to the recipient you provided." + colors.res)
 
 try:
-    sleep(3)
+    sleep(1)
     for i in range (0,2):
         print('')
         i += 1
@@ -152,6 +153,7 @@ try:
 ┃                               ┃
 ┃ ▷ 1: Begin Flooding           ┃
 ┃ ▷ 2: Toggle Debugging (OFF)   ┃
+┃ ▷ 3: Exit                     ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛''')
         else:
             print('''┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -159,11 +161,12 @@ try:
 ┃                               ┃
 ┃ ▷ 1: Begin Flooding           ┃
 ┃ ▷ 2: Toggle Debugging (ON)    ┃
+┃ ▷ 3: Exit                     ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛''')
         opt1 = input("> ")
         if opt1 == "1": 
             flooder()
-        if opt1 == "2":
+        elif opt1 == "2":
             if not mdbg:
                 mdbg = True
             else:
@@ -171,6 +174,22 @@ try:
             print("")
             print(colors.bpur + "Toggled debugging to " + colors.bblu + str(mdbg) + colors.bpur + "!" + colors.res)
             print("")
+        elif opt1 == "3":
+            print('''┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Are you sure you want to exit? ┃
+┃                                ┃
+┃ ▷ 1: Yes                       ┃
+┃ ▷ 2: No                        ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛''')
+            opt2 = input("> ")
+            if opt2 == "1":
+                sys.exit(colors.bgre + "Thank you for using Floodgates!" + colors.res)
+            elif opt2 == "2":
+                pass
+            else:
+                raise OptionNotValid(opt2)
+        else:
+            raise OptionNotValid(opt1)
         
 except Exception as e:
     en = str(type(e).__name__)
